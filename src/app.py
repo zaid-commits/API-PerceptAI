@@ -8,8 +8,8 @@ app = Flask(__name__)
 # CORS Enabled 
 CORS(app)
 
-# Path to your projects directory
-PROJECTS_DIR = r'C:\Users\coeng\OneDrive\Desktop\Backend\PerceptAI_Backend\projects'
+# Path to your projects directory (use a relative path or an environment variable in production)
+PROJECTS_DIR = os.path.join(os.path.dirname(__file__), 'projects')
 
 @app.route('/')
 def index():
@@ -35,5 +35,3 @@ def run_project(project_name):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-app.run()
