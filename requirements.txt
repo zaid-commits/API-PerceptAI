@@ -1,6 +1,6 @@
-Flask==2.0.2
+Flask==3.0.3
 Flask_Cors==5.0.0
-mediapipe
+mediapipe==0.10.14
 opencv_contrib_python==4.10.0.84
 opencv_python==4.10.0.84
-protobuf>=4.25.3,<5
+protobuf==5.28.2
