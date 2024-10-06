@@ -4,6 +4,6 @@ mediapipe==0.10.14
 numpy==2.1.2
 opencv_contrib_python==4.10.0.84
 opencv_python==4.10.0.84
-protobuf==5.28.2
+protobuf==4.25.3
 python-dotenv==1.0.1
 pyzbar==0.1.9
