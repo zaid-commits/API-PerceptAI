@@ -3,15 +3,11 @@ import logging
 import subprocess
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-# Load environment variables from .env file
-load_dotenv()
-
-PROJECTS_DIR = os.getenv('PROJECTS_DIR')
+PROJECTS_DIR = 'C:/Users/coeng/OneDrive/Desktop/PerceptAI-Backend/PerceptAI_Backend/src/projects'  # Change this to your projects directory
 
 @app.route('/projects', methods=['GET'])
 def list_projects():
