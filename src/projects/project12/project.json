@@ -1,0 +1,31 @@
+{
+    "projects": [
+        {
+            "title": "Project Alpha",
+            "author": "Jane Doe",
+            "description": "A revolutionary project that changes everything.",
+            "category": "Technology",
+            "stars": 150,
+            "forks": 30,
+            "imageUrl": "https://example.com/images/project-alpha.jpg"
+        },
+        {
+            "title": "Project Beta",
+            "author": "John Smith",
+            "description": "An innovative project that solves many problems.",
+            "category": "Science",
+            "stars": 200,
+            "forks": 50,
+            "imageUrl": "https://example.com/images/project-beta.jpg"
+        },
+        {
+            "title": "Project Gamma",
+            "author": "Alice Johnson",
+            "description": "A creative project that inspires many.",
+            "category": "Art",
+            "stars": 300,
+            "forks": 70,
+            "imageUrl": "https://example.com/images/project-gamma.jpg"
+        }
+    ]
+}
