@@ -71,4 +71,4 @@ while True:
     if cv2.waitKey(1) & 0xff == ord('q'):
         break
 
-    cv2.imwrite('output.jpg',img)
+    # cv2.imwrite('output.jpg',img)
