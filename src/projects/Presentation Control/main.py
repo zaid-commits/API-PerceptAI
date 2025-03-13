@@ -19,20 +19,24 @@ gesture_cooldown = 1  # 1 second cooldown between gestures
 def detect_gesture(hand_landmarks):
     # Get landmark positions
     index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+    little_tip = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
     thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
     middle_tip = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+    ring_tip = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
     wrist = hand_landmarks.landmark[mp_hands.HandLandmark.WRIST]
     
-    # Check if index finger is pointing (extended)
-    if index_tip.y < middle_tip.y and index_tip.y < wrist.y:
-        if index_tip.x < wrist.x:
-            return "LEFT"
-        elif index_tip.x > wrist.x:
-            return "RIGHT"
+    # Check if right index finger is extended (Left gesture)
+    if index_tip.y < thumb_tip.y and index_tip.y < middle_tip.y and index_tip.y < ring_tip.y and index_tip.y < little_tip.y:
+        return "LEFT"
+
+    # Check if right little finger is extended (Right gesture)
+    if little_tip.y < thumb_tip.y and little_tip.y < index_tip.y and little_tip.y < middle_tip.y and little_tip.y < ring_tip.y:
+        return "RIGHT"
     
-    # Check if hand is closed (fist)
-    if thumb_tip.y > index_tip.y and thumb_tip.y > middle_tip.y:
-        return "FIST"
+    # Check if all five fingers are extended (Fullscreen)
+    if (index_tip.y < wrist.y and middle_tip.y < wrist.y and ring_tip.y < wrist.y and 
+        little_tip.y < wrist.y and thumb_tip.y < wrist.y):
+        return "FULLSCREEN"
     
     return "NONE"
 
@@ -75,8 +79,8 @@ while cap.isOpened():
                     print("Detected RIGHT gesture. Simulating right arrow key press.")
                     pyautogui.press('right')
                     last_gesture_time = current_time
-                elif gesture == "FIST":
-                    print("Detected FIST gesture. Simulating F5 key press.")
+                elif gesture == "FULLSCREEN":
+                    print("Detected FULLSCREEN gesture. Simulating F11 key press.")
                     pyautogui.press('f5')
                     last_gesture_time = current_time
                 
